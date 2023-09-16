@@ -1,0 +1,264 @@
+<html>
+<head>
+<META HTTP-EQUIV='Content-Type' CONTENT='text/html; charset=UTF-8'>
+
+<style>
+	body			{ margin-left: 0.3in;
+				  margin-right: 0.3in; font-family:arial;  }	
+
+	html			{ background: url(_v/bg.jpg) no-repeat center center fixed; 
+				  -webkit-background-size: cover;	-moz-background-size: cover;
+
+				  -o-background-size: cover;		background-size: cover; }
+
+	.b3	{ position:absolute; background:#dcf; width:25%;height:9%; color:#a8a; font-size:0.8em;font-weight:600; padding:12px;padding-top:20px; border-radius:16px }
+	.b4	{ position:absolute; background:#dcf; width:17%;height:9%; font-family:arial; font-size:1.2em; padding:10px; padding-top:16px; border-radius:16px }
+	.b9	{ position:absolute; background:#dcf; width:87%;height:3%; font-family:arial; font-size:1.2em; padding:10px; padding-top:16px; border-radius:16px }
+
+	.display1	{ position:absolute; background:#222; padding:10px; width:40%; height:8%; text-align:center; font-family:arial; color:#eee; font-size:1.9em; ; border-radius:10px }
+	.font0		{ font-family:arial; color:#fff; font-weight:200 }
+	.font1		{ font-family:arial; color:#999; font-size:0.8em }
+	.font2		{ font-family:arial; color:#305; font-size:1.8em }
+	.font3a		{ font-family:arial; color:#a8a; font-size:0.7em; font-weight:600 }
+	.font3b		{ font-family:arial; color:#305; font-size:1.3em; font-weight:600 }
+	.font4		{ font-family:arial; color:#305; font-size:0.8em }
+</style>
+
+<script>
+
+function a( ID )
+{
+	let Head = "<font onclick='javascript:hide(" + '"A"' + ")' class='font1' style='font-size:2.8em; color:#fff'>X</font><br><center><font class='font2'>"
+	let Tail = "</font></center>"
+
+	let A = document.getElementById('A')
+	A.style.visibility = 'visible'
+	if ( ID == '1' )
+		A.innerHTML = Head + 'MWE<sup>$</sup> transaction history' + Tail
+	else if ( ID == '2' )
+		A.innerHTML = Head + 'MWE<sup>+</sup> transaction history' + Tail
+	else if ( ID == '3' )
+		A.innerHTML = Head + 'buy MWE<sup>$</sup> w/ credit card' + Tail
+	else if ( ID == '4' )
+		A.innerHTML = Head + 'buy MWE<sup>$</sup> w/ coins<br><br>&nbsp;&nbsp;<img width="30%" src="_v/wallet.jpg"><br><font class="font4">my wallet</font>' + Tail
+	else if ( ID == '5' )
+		A.innerHTML = Head + 'reclaim MWE<sup>$</sup>' + Tail
+	else if ( ID == '6' )
+		A.innerHTML = Head + 'resell assets' + Tail
+
+
+
+}
+
+function b( ID )
+{
+	let Head = "<font onclick='javascript:hide(" + '"B"' + ")' class='font1' style='font-size:2.8em; color:#fff'>X</font><br><center><font class='font2'>"
+	let Tail = "</font></center>"
+
+	let B = document.getElementById('B')
+	B.style.visibility = 'visible'
+	if ( ID == '0' )
+		B.innerHTML = Head + 'my profile' + Tail
+	else if ( ID == '1' )
+		B.innerHTML = Head + 'my current travels' + Tail
+	else if ( ID == '2' )
+		B.innerHTML = Head + 'my current stays' + Tail
+	else if ( ID == '3' )
+		B.innerHTML = Head + 'my current activities' + Tail
+	else if ( ID == '4' )
+		B.innerHTML = Head + 'my calendar' + Tail
+	else if ( ID == '5' )
+		B.innerHTML = Head + 'call uber' + Tail
+	else if ( ID == '6' )
+		B.innerHTML = Head + 'contact car-rental agency' + Tail
+	else if ( ID == '7' )
+		B.innerHTML = Head + 'pay via NFC' + Tail		
+	else if ( ID == '8' )
+		B.innerHTML = Head + 'messages' + Tail
+	else if ( ID == '9' )
+		B.innerHTML = Head + 'public transportation' + Tail
+	else if ( ID == '10' )
+		B.innerHTML = Head + 'see moowe advertorials' + Tail
+	else if ( ID == '11' )
+		B.innerHTML = Head + 'join local clients chat' + Tail
+}
+
+function c( ID )
+{
+	let Head = "<font onclick='javascript:hide(" + '"C"' + ")' class='font1' style='font-size:2.8em; color:#fff'>X</font><br><center><font class='font2'>"
+	let Tail = "</font></center>"
+
+	let C = document.getElementById('C')
+	C.style.visibility = 'visible'
+	if ( ID == '1' )
+		C.innerHTML = Head + 'flights / cars / cruises' + Tail
+	else if ( ID == '2' )
+		C.innerHTML = Head + 'hotels / resorts / airbnb' + Tail
+	else if ( ID == '3' )
+		C.innerHTML = Head + 'events to enjoy' + Tail
+}
+
+function hide( ID )
+{
+	document.getElementById( ID ).style.visibility = 'hidden'
+}
+
+</script>
+{% load static %}
+</head>
+
+
+
+
+
+
+
+<body style='background:#f00; overflow:hidden'>
+
+<div style='position:absolute; background:#111; left:0%; top:0; width:33.9%; height:100%'>
+
+	<div class='display1' onclick='javascript:a("1")' style='top:3%; left:3.5%'>120,000.50 <br><font class='font1'>USDT<sup></sup></font></div>
+	<div class='display1' onclick='javascript:a("2")' style='width:40%; height:8%; top:3%; left:50.5%'>66,000.00 <br><font class='font1'>MWE<sup>+</sup></font></div>
+
+	<!-- buy -->
+	<div style='position:absolute; left:7%; top:14.5%; width:88%; height:2%; padding:10px'> <font class='font1' style='font-size:1.0em; color:#555'>buy MWE<sup>$</sup></font></div>
+		<div onclick='javascript:a("3")' style='position:absolute; background:#222; left:5%; top:19%; width:84%; height:14%; padding:10px; border-radius:16px'>
+			<font class='font1' style='font-size:1.2em; color:#555'>w/ credit card</font>
+			<br><br>
+			<img src="{% static '_v/cards.png' %}"  style='display:block; margin:auto; width:96%'>
+			</div>
+		<div onclick='javascript:a("4")' style='position:absolute; background:#222; left:5%; top:36%; width:84%; height:14%; padding:10px; border-radius:16px'>
+			<font class='font1' style='font-size:1.2em; color:#555'>w/ coins</font>
+			<br>
+			<img src='_v/crypto.jpg' style='display:block; margin:auto; width:90%; height:72%'>
+			</div>
+
+	<!-- reclaim -->
+	<div onclick='javascript:a("5")' style='position:absolute; left:7%; top:53.5%; width:88%; height:2%; padding:10px'> <font class='font1' style='font-size:1.0em; color:#555'>reclaim USDT<sup></sup></font></div>
+		<div onclick='javascript:a("5")' style='position:absolute; background:#222; left:5%; top:58%; width:84%; height:13%; padding:10px; border-radius:16px'>
+			<font class='font1' style='font-size:1.2em; color:#555'>...</font></div>
+
+
+	<!-- resell -->
+	<div onclick='javascript:a("6")' style='position:absolute; left:7%; top:75%; width:88%; height:2%; padding:10px'> <font class='font1' style='font-size:1.0em; color:#555'>resell assets</font></div>
+		<div onclick='javascript:a("6")' style='position:absolute; background:#222; left:5%; top:79%; width:84%; height:16.5%; padding:10px; border-radius:16px'>
+			<font class='font1' style='font-size:1.2em; color:#555'>...</font></div>
+
+</div>
+
+
+
+
+
+
+<div style='position:absolute; background:#333; width:33.4%; top:0; left:33.3%; height:105%'>
+
+<div class='font0' style='position:absolute; background:#null; width:22%; top:0.8%; left:2.5%; height:7%; padding-top:4px; text-align:center'>
+<font style='font-size:1.0em; color:#aaa'>22 august</font><br>
+<font style='font-size:1.8em'>14:38</font>
+<font style='font-size:0.6em; color:#aaa'>UTC-5</font><br>
+<font style='font-size:0.8em; color:#aaa'>THURSDAY</font>
+</div>
+	<br>
+	<img src='_v/logo.jpg' style='position:absolute; left:28%; width:40%'>
+	<img onclick='javascript:b("0")' src='_v/user.png' style='position:absolute; left:75%; width:10%'>
+	<br>
+
+	<div style='position:absolute; background:#333; top:10%; width:100%; height:86%; font-family:arial; font-size:1.2em'>
+
+	<img src='_v/newyork.jpg' style='position:absolute; left:0%; width:100%; height:40%'>
+	<img src='_v/search.png' style='position:absolute; top:1%;  left:87%; width:10%; height:6%'>
+
+		<div style='position:absolute; background:#null; top:41%; left:2.5%; width:100%; height:4%'><font class='font0'>brooklyn, new york city</font></div>
+
+		<div class='b3' onclick='javascript:b("1")' style='top:46%; left:2.5%'> my current<br><font class='font3b'>travels</font></div>
+		<div class='b3' onclick='javascript:b("2")' style='top:46%; left:34.5%'>my current<br><font class='font3b'>stays</font></div>
+		<div class='b3' onclick='javascript:b("3")' style='top:46%; left:66.5%'>my current<br><font class='font3b'>activities</font></div>
+
+		<div class='b9' onclick='javascript:b("4")' style='top:61%; left:3.5%'><font class='font3a'>my calendar</font></div>
+
+		<div class='b4' onclick='javascript:b("5")' style='top:70%; left:3.5%'><font class='font3a'>uber</font></div>
+		<div class='b4' onclick='javascript:b("6")' style='top:70%; left:27%'><font class='font3a'>car rental agency</font></div>
+		<div class='b4' onclick='javascript:b("7")' style='top:70%; left:50.5%'><font class='font3a'>public transport</font></div>
+		<div class='b4' onclick='javascript:b("8")' style='top:70%; left:74%'><font class='font3a'>pay NFC</font></div>
+
+		<div class='b3' onclick='javascript:b("9")' style='top:84%; left:2.5%'>messages</div>
+		<div class='b3' onclick='javascript:b("10")' style='top:84%; left:34.5%'>pull advertorials</div>
+		<div class='b3' onclick='javascript:b("11")' style='top:84%; left:66.5%'>local clients chat</div>
+
+	</div>
+</div>
+
+
+<div style='position:absolute; background:#111; top:0%; left:66.1%; width:33.9%; height:100%'>
+
+	<!-- traveling -->
+	<div onclick='javascript:c("1")' style='position:absolute; left:7%; top:1.5%; width:88%; height:2%; padding:10px'> <font class='font1' style='font-size:1.0em; color:#555'>flights / cars / cruises</font></div>
+		<div onclick='javascript:c("1")' style='position:absolute; background:#222; left:5%; top:6%; width:84%; height:13%; padding:10px; border-radius:16px'>
+			<font class='font1' style='font-size:1.2em; color:#555'>...</font></div>
+
+	<!-- stays -->
+	<div onclick='javascript:c("2")' style='position:absolute; left:7%; top:22.5%; width:88%; height:2%; padding:10px'> <font class='font1' style='font-size:1.0em; color:#555'>hotels / resorts / airbnb</font></div>
+		<div onclick='javascript:c("2")' style='position:absolute; background:#222; left:5%; top:27%; width:84%; height:47%; padding:10px; border-radius:16px'>
+			<font class='font1' style='font-size:1.2em; color:#555'>...</font></div>
+
+	<!-- activities -->
+	<div onclick='javascript:c("3")' style='position:absolute; left:7%; top:77.5%; width:88%; height:2%; padding:10px'> <font class='font1' style='font-size:1.0em; color:#555'>events to enjoy</font></div>
+		<div onclick='javascript:c("3")' style='position:absolute; background:#222; left:5%; top:82%; width:84%; height:13%; padding:10px; border-radius:16px'>
+			<font class='font1' style='font-size:1.2em; color:#555'>...</font></div>
+
+</div>
+
+
+
+<div id='A' style='position:absolute; background:#aaa; visibility:hidden; left:2%;  top:4%; width:28%; height:90%; padding:10px; border-radius:16px'></div>
+<div id='B' style='position:absolute; background:#aaa; visibility:hidden; left:34%; top:4%; width:30%; height:90%; padding:10px; border-radius:16px'></div>
+<div id='C' style='position:absolute; background:#aaa; visibility:hidden; left:69%; top:3%; width:28%; height:92%; padding:10px; border-radius:16px'></div>
+
+
+
+
+
+
+
+
+<div style='position:absolute; background:#f00; visibility:hidden'>
+
+hotels
+cars
+insurance
+transfers
+location events
+
+
+TravelChain allows information storage with-in the
+following industry sectors:
+• Transaction history
+• Review and feedback
+• Reviewed and purchased tours
+• Movements and visited places
+• Accommodation
+• Locations
+• Activities
+• Events
+• Services
+• Commodities
+• User personal information
+User’s personal information stored:
+• Content, based on the personal experience
+(guidelines, lifehacks, reviews etc.)
+• Personal and contact information
+• Interests
+• Search history
+• Social connections
+• Other information which can be valuable
+for business
+</div>
+
+
+</body>
+</html>
+
+
+
+
