@@ -2,8 +2,8 @@ from django.http import HttpResponse
 
 from django.shortcuts import render
 from django.contrib.auth import authenticate
-from django.http import JsonResponse
-import json
+# from django.http import JsonResponse
+# import json
 from ast import literal_eval
 
 
