@@ -7,11 +7,11 @@ from django.contrib.auth import authenticate
 from ast import literal_eval
 
 
-user = authenticate(username="super", password="persu")
-if user is not None:
-    x = 3
-else:
-    x = 3
+#user = authenticate(username="super", password="persu")
+#if user is not None:
+#    x = 3
+#else:
+#    x = 3
 
 
 def myfunction( HTTPRequest ):
