@@ -1,12 +1,11 @@
 <html>
 <head>
 <META HTTP-EQUIV='Content-Type' CONTENT='text/html; charset=UTF-8'>
-
 <style>
 	body			{ margin-left: 0.3in;
 				  margin-right: 0.3in; font-family:arial;  }	
 
-	html			{ background: url(_v/bg.jpg) no-repeat center center fixed; 
+	html			{ /* background: url(visuals/bg.jpg) no-repeat center center fixed; */
 				  -webkit-background-size: cover;	-moz-background-size: cover;
 
 				  -o-background-size: cover;		background-size: cover; }
@@ -24,96 +23,65 @@
 	.font4		{ font-family:arial; color:#305; font-size:0.8em }
 </style>
 
+	{% load static %}
+
+	<script src="{% static 'modules/a.js' %}"></script>
+	<script src="{% static 'modules/b.js' %}"></script>
+	<script src="{% static 'modules/c.js' %}"></script>
+
 <script>
 
-function a( ID )
-{
-	let Head = "<font onclick='javascript:hide(" + '"A"' + ")' class='font1' style='font-size:2.8em; color:#fff'>X</font><br><center><font class='font2'>"
-	let Tail = "</font></center>"
+	function show( Result ) { document.getElementById('SHOW').innerHTML = Result }
+	function hide( ID )	{ document.getElementById( ID ).style.visibility = 'hidden' }
 
-	let A = document.getElementById('A')
-	A.style.visibility = 'visible'
-	if ( ID == '1' )
-		A.innerHTML = Head + 'MWE<sup>$</sup> transaction history' + Tail
-	else if ( ID == '2' )
-		A.innerHTML = Head + 'MWE<sup>+</sup> transaction history' + Tail
-	else if ( ID == '3' )
-		A.innerHTML = Head + 'buy MWE<sup>$</sup> w/ credit card' + Tail
-	else if ( ID == '4' )
-		A.innerHTML = Head + 'buy MWE<sup>$</sup> w/ coins<br><br>&nbsp;&nbsp;<img width="30%" src="_v/wallet.jpg"><br><font class="font4">my wallet</font>' + Tail
-	else if ( ID == '5' )
-		A.innerHTML = Head + 'reclaim MWE<sup>$</sup>' + Tail
-	else if ( ID == '6' )
-		A.innerHTML = Head + 'resell assets' + Tail
+	function django2( )
+	{
+		var url = "http://127.0.0.1:8000/NOT THIS ONE !!!!!!!!!!!!!!!!!!!!!!";
 
+		var xhr = new XMLHttpRequest();
+		xhr.open("POST", url);
+		xhr.setRequestHeader("Accept", "application/json");
+		xhr.setRequestHeader("Content-Type", "application/json");
+		xhr.onreadystatechange = function () {
+		   if (xhr.readyState === 4) {
+		      console.log(xhr.status);
+		      console.log(xhr.responseText);
+		   }}; 
+		xhr.send('{"customer": "Jason Sweet"}');		// "Id": 78912, 
+	}
 
 
-}
+	function django( )
+	{
+		fetch( '/dandini', {
+			method	: 'POST',
+			mode	: 'cors',
+			headers	: { 'Accept' : 'application/json', 'Content-Type' : 'application/json', 'X-CSRFToken' : csrfToken },
+			body	: JSON.stringify( { "id": "78915" } )
+			} 
+		)
+		//.then( () =>  )
+   		.catch( Error => show( Error ) )
 
-function b( ID )
-{
-	let Head = "<font onclick='javascript:hide(" + '"B"' + ")' class='font1' style='font-size:2.8em; color:#fff'>X</font><br><center><font class='font2'>"
-	let Tail = "</font></center>"
+		window.location = document.URL
+		// location.reload()
+		// window.location.href = window.location.href
+	}
 
-	let B = document.getElementById('B')
-	B.style.visibility = 'visible'
-	if ( ID == '0' )
-		B.innerHTML = Head + 'my profile' + Tail
-	else if ( ID == '1' )
-		B.innerHTML = Head + 'my current travels' + Tail
-	else if ( ID == '2' )
-		B.innerHTML = Head + 'my current stays' + Tail
-	else if ( ID == '3' )
-		B.innerHTML = Head + 'my current activities' + Tail
-	else if ( ID == '4' )
-		B.innerHTML = Head + 'my calendar' + Tail
-	else if ( ID == '5' )
-		B.innerHTML = Head + 'call uber' + Tail
-	else if ( ID == '6' )
-		B.innerHTML = Head + 'contact car-rental agency' + Tail
-	else if ( ID == '7' )
-		B.innerHTML = Head + 'pay via NFC' + Tail		
-	else if ( ID == '8' )
-		B.innerHTML = Head + 'messages' + Tail
-	else if ( ID == '9' )
-		B.innerHTML = Head + 'public transportation' + Tail
-	else if ( ID == '10' )
-		B.innerHTML = Head + 'see moowe advertorials' + Tail
-	else if ( ID == '11' )
-		B.innerHTML = Head + 'join local clients chat' + Tail
-}
 
-function c( ID )
-{
-	let Head = "<font onclick='javascript:hide(" + '"C"' + ")' class='font1' style='font-size:2.8em; color:#fff'>X</font><br><center><font class='font2'>"
-	let Tail = "</font></center>"
-
-	let C = document.getElementById('C')
-	C.style.visibility = 'visible'
-	if ( ID == '1' )
-		C.innerHTML = Head + 'flights / cars / cruises' + Tail
-	else if ( ID == '2' )
-		C.innerHTML = Head + 'hotels / resorts / airbnb' + Tail
-	else if ( ID == '3' )
-		C.innerHTML = Head + 'events to enjoy' + Tail
-}
-
-function hide( ID )
-{
-	document.getElementById( ID ).style.visibility = 'hidden'
-}
+	var csrfToken = '{{ csrf_token }}'
 
 </script>
-{% load static %}
+
+
 </head>
 
 
 
 
-
-
-
 <body style='background:#f00; overflow:hidden'>
+
+
 
 <div style='position:absolute; background:#111; left:0%; top:0; width:33.9%; height:100%'>
 
@@ -123,14 +91,15 @@ function hide( ID )
 	<!-- buy -->
 	<div style='position:absolute; left:7%; top:14.5%; width:88%; height:2%; padding:10px'> <font class='font1' style='font-size:1.0em; color:#555'>buy MWE<sup>$</sup></font></div>
 		<div onclick='javascript:a("3")' style='position:absolute; background:#222; left:5%; top:19%; width:84%; height:14%; padding:10px; border-radius:16px'>
-			<font class='font1' style='font-size:1.2em; color:#555'>w/ credit card</font>
+			<font id='return' class='font1' style='font-size:1.2em; color:#999'>w/ {{ var1 }} {{ var2 }} {{ var3 }} credit card</font>
 			<br><br>
-			<img src="{% static '_v/cards.png' %}"  style='display:block; margin:auto; width:96%'>
+			<img src="{% static 'visuals/cards.png' %}" style='display:block; margin:auto; width:96%'>
+			<!-- img src='visuals/cards.png' style='display:block; margin:auto; width:96%'-->
 			</div>
 		<div onclick='javascript:a("4")' style='position:absolute; background:#222; left:5%; top:36%; width:84%; height:14%; padding:10px; border-radius:16px'>
 			<font class='font1' style='font-size:1.2em; color:#555'>w/ coins</font>
 			<br>
-			<img src="{% static '_v/crypto.jpg' %}" style='display:block; margin:auto; width:90%; height:72%'>
+			<img src="{% static 'visuals/crypto.jpg' %}" style='display:block; margin:auto; width:90%; height:72%'>
 			</div>
 
 	<!-- reclaim -->
@@ -160,14 +129,14 @@ function hide( ID )
 <font style='font-size:0.8em; color:#aaa'>THURSDAY</font>
 </div>
 	<br>
-	<img src="{% static '_v/logo.jpg' %}" style='position:absolute; left:28%; width:40%'>
-	<img onclick='javascript:b("0")' src='_v/user.png' style='position:absolute; left:75%; width:10%'>
+	<img src="{% static 'visuals/logo.jpg' %}" style='position:absolute; left:28%; width:40%'>
+	<img onclick='javascript:b("0")' src="{% static 'visuals/user.png' %}" style='position:absolute; left:75%; width:10%'>
 	<br>
 
 	<div style='position:absolute; background:#333; top:10%; width:100%; height:86%; font-family:arial; font-size:1.2em'>
 
-	<img src="{% static '_v/newyork.jpg' %}" style='position:absolute; left:0%; width:100%; height:40%'>
-	<img src="{% static '_v/search.png' %}" style='position:absolute; top:1%;  left:87%; width:10%; height:6%'>
+	<img src="{% static 'visuals/newyork.jpg' %}" style='position:absolute; left:0%; width:100%; height:40%'>
+	<img src="{% static 'visuals/search.png' %}" style='position:absolute; top:1%;  left:87%; width:10%; height:6%'>
 
 		<div style='position:absolute; background:#null; top:41%; left:2.5%; width:100%; height:4%'><font class='font0'>brooklyn, new york city</font></div>
 
@@ -216,6 +185,7 @@ function hide( ID )
 <div id='C' style='position:absolute; background:#aaa; visibility:hidden; left:69%; top:3%; width:28%; height:92%; padding:10px; border-radius:16px'></div>
 
 
+<div id='SHOW' style='position:absolute; background:#888; visibility:visible; left:0%; top:58%; width:30%; height:30%; padding:10px; border-radius:16px'></div>
 
 
 
@@ -253,6 +223,20 @@ User’s personal information stored:
 • Social connections
 • Other information which can be valuable
 for business
+
+
+
+
+https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
+
+put vs. post
+Tim Berners-Lee didnt use the modal attitude
+the result? a promiscuity od adverbial commands
+
+
+the eternally long gurbanoglu - mr. whitesell DRAMA !!!
+	https://forum.djangoproject.com/t/passing-a-javascript-variable-in-an-html-file-to-a-django-view-function/14562
+
 </div>
 
 
