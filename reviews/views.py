@@ -20,7 +20,7 @@ def myfunction( HTTPRequest ):
     contact = HTTPRequest.body
     data = literal_eval(HTTPRequest.body.decode('utf8'))
     print( data["id"] )
-    aysegeriverdi = ayse( 'gonderi' )
+    aysegeriverdi = 'gonderi'
  #   all = '{ "var1": word1, "var2": word2, "var3": aysegeriverdi }'
     all = { "var1": "abc", "var2": "xyz", "var3": "qrt" }
     return render( HTTPRequest, "index.html", all )
@@ -35,5 +35,5 @@ def blankfunction( HTTPRequest ):
 
 
 
-def ayse(paket) :
-    return paket + 'yi actim!...'
+# def ayse(paket) :
+#    return paket + 'yi actim!...'
